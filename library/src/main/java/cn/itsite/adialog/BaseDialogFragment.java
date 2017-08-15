@@ -1,7 +1,6 @@
 package cn.itsite.adialog;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -9,14 +8,11 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-
-import com.socks.library.KLog;
 
 public class BaseDialogFragment extends DialogFragment {
     private static final String MARGIN = "margin";
@@ -43,8 +39,6 @@ public class BaseDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.BaseDialog);
         layoutId = getLayoutId();
-        KLog.e("onCreate");
-
         //恢复保存的数据
         if (savedInstanceState != null) {
             margin = savedInstanceState.getInt(MARGIN);
@@ -63,7 +57,6 @@ public class BaseDialogFragment extends DialogFragment {
         if (dialog == null) {
             return super.onCreateDialog(savedInstanceState);
         } else {
-            KLog.e("onCreateDialog");
             return dialog;
         }
     }
@@ -72,12 +65,8 @@ public class BaseDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (layoutId == 0) {
-            KLog.e("onCreateView==0");
-
             return super.onCreateView(inflater, container, savedInstanceState);
         } else {
-            KLog.e("onCreateView不为0");
-
             return inflater.inflate(layoutId, container, false);
         }
     }
@@ -85,8 +74,6 @@ public class BaseDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        KLog.e("onViewCreated");
-
         convertView(new BaseViewHolder(view), this);
     }
 
@@ -94,19 +81,6 @@ public class BaseDialogFragment extends DialogFragment {
     public void onStart() {
         super.onStart();
         initWindow();
-    }
-
-    @Override
-    public LayoutInflater getLayoutInflater(Bundle savedInstanceState) {
-        KLog.e("getLayoutInflater");
-        return super.getLayoutInflater(savedInstanceState);
-    }
-
-    @Override
-    public void setupDialog(Dialog dialog, int style) {
-        KLog.e("setupDialog");
-
-        super.setupDialog(dialog, style);
     }
 
     /**
@@ -152,7 +126,6 @@ public class BaseDialogFragment extends DialogFragment {
     }
 
     public int getLayoutId() {
-        KLog.e("  getLayoutId-->" + layoutId);
         return layoutId;
     }
 
@@ -163,15 +136,11 @@ public class BaseDialogFragment extends DialogFragment {
     }
 
     public BaseDialogFragment setLayoutId(@LayoutRes int layoutId) {
-        KLog.e("  setLayoutId");
-
         this.layoutId = layoutId;
         return this;
     }
 
     public BaseDialogFragment setDialog(Dialog dialog) {
-        KLog.e("  setDialog");
-
         this.dialog = dialog;
         return this;
     }
@@ -214,17 +183,5 @@ public class BaseDialogFragment extends DialogFragment {
     public BaseDialogFragment setConvertListener(ADialogListener.OnDialogFragmentConvertListener listener) {
         this.mConvertListener = listener;
         return this;
-    }
-
-    private static class Utils {
-        static int dp2px(Context context, float dipValue) {
-            final float scale = context.getResources().getDisplayMetrics().density;
-            return (int) (dipValue * scale + 0.5f);
-        }
-
-        static int getScreenWidth(Context context) {
-            DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            return displayMetrics.widthPixels;
-        }
     }
 }

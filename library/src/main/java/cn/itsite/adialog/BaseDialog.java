@@ -11,8 +11,6 @@ import android.support.annotation.StyleRes;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.socks.library.KLog;
-
 public class BaseDialog extends Dialog {
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
@@ -31,7 +29,6 @@ public class BaseDialog extends Dialog {
     @LayoutRes
     protected int layoutId;
     private ADialogListener.OnDialogConvertListener mConvertListener;
-    private Dialog dialog;
 
     public BaseDialog(@NonNull Context context) {
         super(context);
@@ -50,13 +47,10 @@ public class BaseDialog extends Dialog {
             animStyle = savedInstanceState.getInt(ANIM);
             layoutId = savedInstanceState.getInt(LAYOUT);
         }
-        layoutId = getLayoutId();//---------------------有疑问，不知道需不需要这么做
+        layoutId = getLayoutId();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(layoutId);
-
         convertView(new BaseViewHolder(getWindow().getDecorView()), this);
-
-
     }
 
 
@@ -118,8 +112,6 @@ public class BaseDialog extends Dialog {
     }
 
     public BaseDialog setLayoutId(@LayoutRes int layoutId) {
-        KLog.e("  setLayoutId");
-
         this.layoutId = layoutId;
         return this;
     }

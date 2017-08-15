@@ -114,7 +114,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                         })
                         .setDimAmount(0.3f)
                         .setHeight(350)
-                        .setGravity(Gravity.CENTER)
+                        .setGravity(Gravity.BOTTOM)
                         .setAnimStyle(R.style.SlideAnimation)
                         .show();
                 break;
