@@ -2,7 +2,7 @@
 
 [![Release](https://jitpack.io/v/leguang/ADialog.svg)](https://jitpack.io/#leguang/ADialog)
 
-StateManager是一个页面状态管理工具，可以让开发者方便而又灵活地切换界面的状态。（欢迎Star一下）
+ADialog是一个简单易用的构建Dialog和DialogFragment的工具，可以让开发者只需要传入xml布局文件即可方便而又灵活地创建属于自己Dialog或者DialogFragment。（欢迎Star一下）
 ## 能做什么？([下载 apk](https://github.com/leguang/ADialog/blob/master/app-debug.apk))
 - **只需要通过传入布局ID即可定制出自己的Dialog或者DialogFragment**
 - **弹框位置可配置，在顶部、在中间还是在底部由你决定**
