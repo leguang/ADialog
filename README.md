@@ -3,8 +3,8 @@
 [![Release](https://jitpack.io/v/leguang/ADialog.svg)](https://jitpack.io/#leguang/ADialog)
 
 StateManager是一个页面状态管理工具，可以让开发者方便而又灵活地切换界面的状态。（欢迎Star一下）
-## 能做什么？([下载 apk](https://github.com/leguang/BaseDialogFragment/blob/master/app-debug.apk))
-- **只需要通过传入布局ID即可定制出自己的DialogFragment**
+## 能做什么？([下载 apk](https://github.com/leguang/ADialog/blob/master/app-debug.apk))
+- **只需要通过传入布局ID即可定制出自己的Dialog或者DialogFragment**
 - **弹框位置可配置，在顶部、在中间还是在底部由你决定**
 - **默认提供一些进入动画**
 - **简洁的API，简单的配置**
@@ -26,37 +26,76 @@ StateManager是一个页面状态管理工具，可以让开发者方便而又�
 ```
 	dependencies {
 	     //简易的配置DialgoFragment工具
-   		 compile 'com.github.leguang:BaseDialogFragment:1.1'
+   		 compile 'com.github.leguang:ADialog:1.0'
 	}
 ```
 此时同步一下，即已完成引入。
 
-3. 代码中简单使用：
+### Dialog的简单使用：
 
 ```
-//首先配置一下：
-new BaseDialogFragment()
-        .setLayoutId(R.layout.friend_set_layout)
-        .setConvertListener(new BaseDialogFragment.ConvertListener() {
+   new BaseDialog(this)
+        .setLayoutId(R.layout.share_layout)//传入你的xml布局。
+        .setConvertListener(new ADialogListener.OnDialogConvertListener() {
             @Override
-            public void convert(BaseViewHolder holder, BaseDialogFragment dialog) {
-                holder.setOnClickListener(R.id.setting0, new View.OnClickListener() {
+            public void convert(BaseViewHolder holder, final Dialog dialog) {
+                //通过ViewHolder对View进行一些定制化。
+                holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        showToast("点了");
+                    public void onClick(View v) {
+                        showToast("点击关闭");
+                        dialog.dismiss();
                     }
                 });
             }
         })
-        .setDimAmount(0.3f)
-        .setHeight(310)
-        .setGravity(Gravity.BOTTOM)
-        .setAnimStyle(R.style.SlideAnimation)
-        .show(getSupportFragmentManager());
+        .setDimAmount(0.3f)//设置window的暗度。
+        .setGravity(Gravity.TOP)//位置有四种选择。
+        .setAnimStyle(R.style.SlideAnimation)//进入和退出动画。
+        .show();//显示。
+```
+
+### DialogFragment的简单使用：
+
+```
+    new BaseDialogFragment()
+           .setLayoutId(R.layout.share_layout)//传入你的xml布局。
+           .setConvertListener(new ADialogListener.OnDialogFragmentConvertListener() {
+               //通过ViewHolder对View进行一些定制化。
+               @Override
+               public void convert(BaseViewHolder holder, DialogFragment dialog) {
+                   holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
+                       @Override
+                       public void onClick(View view) {
+                           showToast("点了微信");
+                       }
+                   });
+               }
+           })
+           .setDimAmount(0.3f)//设置window的暗度。
+           .setGravity(Gravity.BOTTOM)//位置有多种选择。
+           .setAnimStyle(R.style.SlideAnimation)//进入和退出动画。
+           .show(getSupportFragmentManager(), "MyBaseDialogFragment");//显示。
+```
+
+### 用DialogFragment显示Dialog。
+```
+ AlertDialog alertDialog = new AlertDialog.Builder(this)
+                        .setTitle("注意：")
+                        .setMessage("是否退出应用？")
+                        .setPositiveButton("确定", null)
+                        .setNegativeButton("取消", null)
+                        .setCancelable(false)
+                        .create();
+
+                new BaseDialogFragment()
+                        .setDialog(alertDialog)
+                        .setGravity(Gravity.TOP)
+                        .show(getSupportFragmentManager());
 ```
 
 ## 高级用法：
-当然你也可以通过继承BaseDialogFragment来改造属于自己的对话框。
+当然你也可以通过继承Dialog或者BaseDialogFragment来改造属于自己的对话框。
 
 >**持续更新!，欢迎Issues+Star项目**
 

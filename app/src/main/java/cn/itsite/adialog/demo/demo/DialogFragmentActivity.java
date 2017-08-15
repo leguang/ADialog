@@ -61,8 +61,9 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
         switch (view.getId()) {
             case R.id.share:
                 new BaseDialogFragment()
-                        .setLayoutId(R.layout.share_layout)
+                        .setLayoutId(R.layout.share_layout)//传入你的xml布局。
                         .setConvertListener(new ADialogListener.OnDialogFragmentConvertListener() {
+                            //通过ViewHolder对View进行一些定制化。
                             @Override
                             public void convert(BaseViewHolder holder, DialogFragment dialog) {
                                 holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
@@ -73,10 +74,10 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                                 });
                             }
                         })
-                        .setDimAmount(0.3f)
-                        .setGravity(Gravity.BOTTOM)
-                        .setAnimStyle(R.style.SlideAnimation)
-                        .show(getSupportFragmentManager(), "MyBaseDialogFragment");
+                        .setDimAmount(0.3f)//设置window的暗度。
+                        .setGravity(Gravity.BOTTOM)//位置有多种选择。
+                        .setAnimStyle(R.style.SlideAnimation)//进入和退出动画。
+                        .show(getSupportFragmentManager(), "MyBaseDialogFragment");//显示。
                 break;
             case R.id.selector:
                 final SelectorAdapter selectorAdapter = new SelectorAdapter();
@@ -161,7 +162,7 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                                 });
                             }
                         })
-                        .setGravity(Gravity.CENTER)
+                        .setGravity(Gravity.TOP)
                         .setAnimStyle(R.style.SlideAnimation)
                         .show(getSupportFragmentManager());
                 break;
@@ -212,6 +213,7 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
 
                 new BaseDialogFragment()
                         .setDialog(alertDialog)
+                        .setGravity(Gravity.TOP)
                         .show(getSupportFragmentManager());
                 break;
         }

@@ -60,10 +60,11 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         switch (view.getId()) {
             case R.id.share:
                 new BaseDialog(this)
-                        .setLayoutId(R.layout.share_layout)
+                        .setLayoutId(R.layout.share_layout)//传入你的xml布局。
                         .setConvertListener(new ADialogListener.OnDialogConvertListener() {
                             @Override
                             public void convert(BaseViewHolder holder, final Dialog dialog) {
+                                //通过ViewHolder对View进行一些定制化。
                                 holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -73,10 +74,10 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                                 });
                             }
                         })
-                        .setDimAmount(0.3f)
-                        .setGravity(Gravity.BOTTOM)
-                        .setAnimStyle(R.style.SlideAnimation)
-                        .show();
+                        .setDimAmount(0.3f)//设置window的暗度。
+                        .setGravity(Gravity.TOP)//位置有多种选择。
+                        .setAnimStyle(R.style.SlideAnimation)//进入和退出动画。
+                        .show();//显示。
                 break;
             case R.id.selector:
                 final SelectorAdapter selectorAdapter = new SelectorAdapter();
@@ -113,7 +114,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                         })
                         .setDimAmount(0.3f)
                         .setHeight(350)
-                        .setGravity(Gravity.BOTTOM)
+                        .setGravity(Gravity.CENTER)
                         .setAnimStyle(R.style.SlideAnimation)
                         .show();
                 break;
@@ -141,7 +142,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                             }
                         })
                         .setDimAmount(0.3f)
-                        .setGravity(Gravity.BOTTOM)
+                        .setGravity(Gravity.LEFT)
                         .setAnimStyle(R.style.SlideAnimation)
                         .show();
                 break;
