@@ -93,6 +93,7 @@ ADialog是一个简单易用的构建Dialog和DialogFragment的工具，可以�
                         .setGravity(Gravity.TOP)
                         .show(getSupportFragmentManager());
 ```
+Demo中有更多使用实例。
 
 ## 高级用法：
 当然你也可以通过继承Dialog或者BaseDialogFragment来改造属于自己的对话框。
