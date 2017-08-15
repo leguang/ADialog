@@ -30,5 +30,5 @@ dependencies {
     //一个不错的RecyclerViewAdapter辅助框架
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16'
 //    compile project(':library')
-    compile 'com.github.leguang:ADialog:1.0'
+    compile 'com.github.leguang:ADialog:1.1'
 }
