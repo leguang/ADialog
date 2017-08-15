@@ -1,0 +1,18 @@
+<resources>
+
+    <style name="BaseDialog" parent="@style/Theme.AppCompat.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+    </style>
+
+    <style name="SlideAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_enter</item>
+        <item name="android:windowExitAnimation">@anim/slide_exit</item>
+    </style>
+
+</resources>

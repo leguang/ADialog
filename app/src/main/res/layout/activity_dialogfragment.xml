@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="分享" />
+
+    <Button
+        android:id="@+id/selector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择器" />
+
+    <Button
+        android:id="@+id/edit_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="评论" />
+
+    <Button
+        android:id="@+id/lucky_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="红包"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="加载提示"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="确定" />
+
+    <Button
+        android:id="@+id/dialog_in_fragment"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="把Dialog装进DialogFragment" />
+
+</LinearLayout>

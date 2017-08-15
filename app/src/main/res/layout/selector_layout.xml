@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_bg_selector"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:id="@+id/tv_title_selector_dialog_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/base_black" />
+
+        <ImageView
+            android:id="@+id/iv_cancel_selector_dialog_fragment"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_close_black_18dp" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/base_line" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_selector_dialog_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:descendantFocusability="blocksDescendants"
+        android:layoutAnimation="@anim/layout_dock_left_enter" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/base_line" />
+
+    <TextView
+        android:id="@+id/tv_cancel_selector_dialog_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="取　消"
+        android:textColor="@color/base_black" />
+</LinearLayout>

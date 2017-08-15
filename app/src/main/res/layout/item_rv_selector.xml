@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_arrow_item_rv_host_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/ic_arrow_right_gray_60px" />
+
+    <TextView
+        android:id="@+id/tv_current_item_rv_host_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_toStartOf="@+id/iv_arrow_item_rv_host_selector"
+        android:text="当前主机"
+        android:textColor="@color/default_gray" />
+
+    <TextView
+        android:id="@+id/tv_name_item_rv_host_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1111"
+        android:textColor="@color/base_black" />
+
+    <TextView
+        android:id="@+id/tv_role_item_rv_host_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name_item_rv_host_selector"
+        android:text="1111"
+        android:textColor="@color/base_color"
+        android:textSize="13sp" />
+
+</RelativeLayout>
