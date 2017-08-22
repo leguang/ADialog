@@ -50,7 +50,7 @@ public class BaseViewHolder {
     private View rootView;
 
 
-    BaseViewHolder(final View view) {
+    public BaseViewHolder(final View view) {
         if (view == null) {
             throw new IllegalArgumentException("rootView may not be null");
         }

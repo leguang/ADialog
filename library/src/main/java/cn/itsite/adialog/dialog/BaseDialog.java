@@ -1,4 +1,4 @@
-package cn.itsite.adialog;
+package cn.itsite.adialog.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,9 +7,14 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.view.Window;
 import android.view.WindowManager;
+
+import cn.itsite.adialog.ADialogListener;
+import cn.itsite.adialog.BaseViewHolder;
+import cn.itsite.adialog.Utils;
 
 public class BaseDialog extends Dialog {
     private static final String MARGIN = "margin";
@@ -34,6 +39,14 @@ public class BaseDialog extends Dialog {
         super(context);
     }
 
+    public BaseDialog(@NonNull Context context, @StyleRes int themeResId) {
+        super(context, themeResId);
+    }
+
+    protected BaseDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+        super(context, cancelable, cancelListener);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +65,6 @@ public class BaseDialog extends Dialog {
         setContentView(layoutId);
         convertView(new BaseViewHolder(getWindow().getDecorView()), this);
     }
-
 
     @NonNull
     @Override
@@ -145,7 +157,6 @@ public class BaseDialog extends Dialog {
         this.animStyle = animStyle;
         return this;
     }
-
 
     public BaseDialog setConvertListener(ADialogListener.OnDialogConvertListener listener) {
         this.mConvertListener = listener;

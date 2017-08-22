@@ -1,4 +1,4 @@
-package cn.itsite.adialog;
+package cn.itsite.adialog.dialogfragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -13,6 +13,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+
+import cn.itsite.adialog.ADialogListener;
+import cn.itsite.adialog.BaseViewHolder;
+import cn.itsite.adialog.R;
+import cn.itsite.adialog.Utils;
 
 public class BaseDialogFragment extends DialogFragment {
     private static final String MARGIN = "margin";

@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/base_black" />
+            android:textColor="#222" />
 
         <ImageView
             android:id="@+id/iv_cancel_selector_dialog_fragment"
@@ -28,7 +28,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/base_line" />
+        android:background="#E7E7E7" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView_selector_dialog_fragment"
@@ -41,7 +41,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/base_line" />
+        android:background="#E7E7E7" />
 
     <TextView
         android:id="@+id/tv_cancel_selector_dialog_fragment"
@@ -51,5 +51,5 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="取　消"
-        android:textColor="@color/base_black" />
+        android:textColor="#222" />
 </LinearLayout>

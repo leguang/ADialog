@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.itsite.adialog.ADialogListener;
-import cn.itsite.adialog.BaseDialog;
-import cn.itsite.adialog.BaseDialogFragment;
 import cn.itsite.adialog.BaseViewHolder;
 import cn.itsite.adialog.demo.R;
+import cn.itsite.adialog.dialog.BaseDialog;
+import cn.itsite.adialog.dialogfragment.BaseDialogFragment;
 
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
@@ -82,7 +82,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.selector:
                 final SelectorAdapter selectorAdapter = new SelectorAdapter();
                 new BaseDialog(this)
-                        .setLayoutId(R.layout.selector_layout)
+                        .setLayoutId(R.layout.selector)
                         .setConvertListener(new ADialogListener.OnDialogConvertListener() {
                             @Override
                             public void convert(BaseViewHolder holder, final Dialog dialog) {

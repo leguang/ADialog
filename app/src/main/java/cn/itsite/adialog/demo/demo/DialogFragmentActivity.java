@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.itsite.adialog.ADialogListener;
-import cn.itsite.adialog.BaseDialogFragment;
 import cn.itsite.adialog.BaseViewHolder;
 import cn.itsite.adialog.demo.R;
+import cn.itsite.adialog.dialogfragment.BaseDialogFragment;
 
 public class DialogFragmentActivity extends AppCompatActivity implements View.OnClickListener {
     private Button bt0, bt1, bt2, bt3, bt4, bt5, bt6;
@@ -82,7 +82,7 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
             case R.id.selector:
                 final SelectorAdapter selectorAdapter = new SelectorAdapter();
                 new BaseDialogFragment()
-                        .setLayoutId(R.layout.selector_layout)
+                        .setLayoutId(R.layout.selector)
                         .setConvertListener(new ADialogListener.OnDialogFragmentConvertListener() {
 
                             @Override
