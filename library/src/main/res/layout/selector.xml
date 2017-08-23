@@ -10,14 +10,14 @@
         android:layout_height="45dp">
 
         <TextView
-            android:id="@+id/tv_title_selector_dialog_fragment"
+            android:id="@+id/tv_title_selector"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
             android:textColor="#222" />
 
         <ImageView
-            android:id="@+id/iv_cancel_selector_dialog_fragment"
+            android:id="@+id/iv_cancel_selector"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_gravity="end|center_vertical"
@@ -31,7 +31,7 @@
         android:background="#E7E7E7" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView_selector_dialog_fragment"
+        android:id="@+id/recyclerView_selector"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -44,7 +44,7 @@
         android:background="#E7E7E7" />
 
     <TextView
-        android:id="@+id/tv_cancel_selector_dialog_fragment"
+        android:id="@+id/tv_cancel_selector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"

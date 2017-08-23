@@ -17,6 +17,7 @@ import cn.itsite.adialog.R;
  */
 public class LoadingDialog extends BaseDialog {
     private TextView tvLoading;
+    private String text;
 
     public LoadingDialog(@NonNull Context context) {
         super(context);
@@ -39,11 +40,12 @@ public class LoadingDialog extends BaseDialog {
     public void convertView(BaseViewHolder holder, BaseDialog dialog) {
         super.convertView(holder, dialog);
         tvLoading = holder.getView(R.id.tv_loading);
+        tvLoading.setText(text);
     }
 
     public LoadingDialog setText(String s) {
         if (tvLoading != null) {
-            tvLoading.setText(s);
+            tvLoading.setText(text = s);
         }
         return this;
     }

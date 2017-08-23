@@ -4,16 +4,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.chad.library.adapter.base.BaseQuickAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +18,7 @@ import cn.itsite.adialog.ADialogListener;
 import cn.itsite.adialog.BaseViewHolder;
 import cn.itsite.adialog.demo.R;
 import cn.itsite.adialog.dialog.BaseDialog;
+import cn.itsite.adialog.dialog.SelectorDialog;
 import cn.itsite.adialog.dialogfragment.BaseDialogFragment;
 
 
@@ -80,42 +77,30 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                         .show();//显示。
                 break;
             case R.id.selector:
-                final SelectorAdapter selectorAdapter = new SelectorAdapter();
-                new BaseDialog(this)
-                        .setLayoutId(R.layout.selector)
-                        .setConvertListener(new ADialogListener.OnDialogConvertListener() {
+                final List<DataBean> mData = getData();
+                new SelectorDialog(this)
+                        .setItemLayoutId(R.layout.item_rv_selector)
+                        .setData(mData)
+                        .setOnItemConvertListener(new ADialogListener.OnItemConvertListener() {
                             @Override
-                            public void convert(BaseViewHolder holder, final Dialog dialog) {
-                                holder.setText(R.id.tv_title_selector_dialog_fragment, "请选择XXX")
-                                        .setOnClickListener(R.id.iv_cancel_selector_dialog_fragment, new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                dialog.dismiss();
-                                            }
-                                        })
-                                        .setOnClickListener(R.id.tv_cancel_selector_dialog_fragment, new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View v) {
-                                                dialog.dismiss();
-                                            }
-                                        });
-                                RecyclerView recyclerView = holder.getView(R.id.recyclerView_selector_dialog_fragment);
-                                recyclerView.setLayoutManager(new LinearLayoutManager(DialogActivity.this));
-                                recyclerView.setAdapter(selectorAdapter);
-                                selectorAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-                                    @Override
-                                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                                        dialog.dismiss();
-                                        showToast(position + "");
-                                    }
-                                });
-                                selectorAdapter.setNewData(getData());
+                            public void onItemConvert(BaseViewHolder holder, int position, Dialog dialog) {
+                                DataBean item = mData.get(position);
+                                holder.setText(R.id.tv_name_item_rv_host_selector, item.name)
+                                        .setText(R.id.tv_role_item_rv_host_selector, item.des)
+                                        .setText(R.id.tv_current_item_rv_host_selector, item.des);
                             }
                         })
-                        .setDimAmount(0.3f)
-                        .setHeight(350)
-                        .setGravity(Gravity.BOTTOM)
+                        .setOnItemClickListener(new ADialogListener.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View v, BaseViewHolder holder, int position, Dialog dialog) {
+                                showToast("position-->" + position);
+                                dialog.dismiss();
+                            }
+                        })
+                        .setTitle("请选择XXX")
+                        .setHeight(250)
                         .setAnimStyle(R.style.SlideAnimation)
+                        .setGravity(Gravity.BOTTOM)
                         .show();
                 break;
             case R.id.edit_input:
@@ -173,6 +158,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                         .show(getSupportFragmentManager());
                 break;
             case R.id.tips:
+
                 BaseDialog dialog = new BaseDialog(this)
                         .setLayoutId(R.layout.confirm_layout)
                         .setConvertListener(new ADialogListener.OnDialogConvertListener() {

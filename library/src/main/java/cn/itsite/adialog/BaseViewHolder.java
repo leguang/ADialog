@@ -24,6 +24,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
 import android.support.annotation.StringRes;
+import android.support.v7.widget.RecyclerView;
 import android.text.util.Linkify;
 import android.util.SparseArray;
 import android.view.View;
@@ -40,7 +41,7 @@ import android.widget.TextView;
 /**
  * https://github.com/CymChad/BaseRecyclerViewAdapterHelper
  */
-public class BaseViewHolder {
+public class BaseViewHolder extends RecyclerView.ViewHolder {
 
     /**
      * Views indexed with their IDs
@@ -51,6 +52,7 @@ public class BaseViewHolder {
 
 
     public BaseViewHolder(final View view) {
+        super(view);
         if (view == null) {
             throw new IllegalArgumentException("rootView may not be null");
         }
@@ -295,10 +297,10 @@ public class BaseViewHolder {
     }
 
     /**
-     * Sets the on click listener of the view.
+     * Sets the on onItemClick listener of the view.
      *
      * @param viewId   The view id.
-     * @param listener The on click listener;
+     * @param listener The on onItemClick listener;
      * @return The BaseViewHolder for chaining.
      */
     public BaseViewHolder setOnClickListener(@IdRes int viewId, View.OnClickListener listener) {
@@ -321,10 +323,10 @@ public class BaseViewHolder {
     }
 
     /**
-     * Sets the on long click listener of the view.
+     * Sets the on long onItemClick listener of the view.
      *
      * @param viewId   The view id.
-     * @param listener The on long click listener;
+     * @param listener The on long onItemClick listener;
      * @return The BaseViewHolder for chaining.
      */
     public BaseViewHolder setOnLongClickListener(@IdRes int viewId, View.OnLongClickListener listener) {
@@ -334,10 +336,10 @@ public class BaseViewHolder {
     }
 
     /**
-     * Sets the listview or gridview's item click listener of the view
+     * Sets the listview or gridview's item onItemClick listener of the view
      *
      * @param viewId   The view id.
-     * @param listener The item on click listener;
+     * @param listener The item on onItemClick listener;
      * @return The BaseViewHolder for chaining.
      */
     public BaseViewHolder setOnItemClickListener(@IdRes int viewId, AdapterView.OnItemClickListener listener) {
@@ -347,10 +349,10 @@ public class BaseViewHolder {
     }
 
     /**
-     * Sets the listview or gridview's item long click listener of the view
+     * Sets the listview or gridview's item long onItemClick listener of the view
      *
      * @param viewId   The view id.
-     * @param listener The item long click listener;
+     * @param listener The item long onItemClick listener;
      * @return The BaseViewHolder for chaining.
      */
     public BaseViewHolder setOnItemLongClickListener(@IdRes int viewId, AdapterView.OnItemLongClickListener listener) {
@@ -360,10 +362,10 @@ public class BaseViewHolder {
     }
 
     /**
-     * Sets the listview or gridview's item selected click listener of the view
+     * Sets the listview or gridview's item selected onItemClick listener of the view
      *
      * @param viewId   The view id.
-     * @param listener The item selected click listener;
+     * @param listener The item selected onItemClick listener;
      * @return The BaseViewHolder for chaining.
      */
     public BaseViewHolder setOnItemSelectedClickListener(@IdRes int viewId, AdapterView.OnItemSelectedListener listener) {

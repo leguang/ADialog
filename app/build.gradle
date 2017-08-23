@@ -26,7 +26,6 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
 
     //一个不错的RecyclerViewAdapter辅助框架
     compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.16'
