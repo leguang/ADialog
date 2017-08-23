@@ -22,12 +22,12 @@ public class SelectorDialogFragment extends BaseDialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         return new SelectorDialog(getContext())
+                .setTitle(title)
                 .setItemLayoutId(itemLayoutId)
                 .setData(mData)
                 .setAdapter(adapter)
                 .setOnItemConvertListener(itemConvertListener)
-                .setOnItemClickListener(itemClickListener)
-                .setTitle(title);
+                .setOnItemClickListener(itemClickListener);
     }
 
     public String getTitle() {

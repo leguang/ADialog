@@ -106,7 +106,7 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
 
 //                final SelectorAdapter selectorAdapter = new SelectorAdapter();
 //                new BaseDialogFragment()
-//                        .setLayoutId(R.layout.selector)
+//                        .setLayoutId(R.layout.adialog_selector)
 //                        .setConvertListener(new ADialogListener.OnDialogFragmentConvertListener() {
 //
 //                            @Override

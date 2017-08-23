@@ -33,7 +33,7 @@ public class LoadingDialog extends BaseDialog {
 
     @Override
     public int getLayoutId() {
-        return R.layout.loading;
+        return R.layout.adialog_loading;
     }
 
     @Override

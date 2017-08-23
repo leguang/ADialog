@@ -43,7 +43,7 @@ public class SelectorDialog extends BaseDialog {
 
     @Override
     public int getLayoutId() {
-        return R.layout.selector;
+        return R.layout.adialog_selector;
     }
 
     @Override
