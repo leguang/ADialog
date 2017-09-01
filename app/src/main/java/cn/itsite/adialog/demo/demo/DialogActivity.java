@@ -18,8 +18,8 @@ import cn.itsite.adialog.ADialogListener;
 import cn.itsite.adialog.BaseViewHolder;
 import cn.itsite.adialog.demo.R;
 import cn.itsite.adialog.dialog.BaseDialog;
+import cn.itsite.adialog.dialog.LoadingDialog;
 import cn.itsite.adialog.dialog.SelectorDialog;
-import cn.itsite.adialog.dialogfragment.BaseDialogFragment;
 
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
@@ -151,11 +151,9 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                         .show();
                 break;
             case R.id.loading:
-                new BaseDialogFragment()
-                        .setLayoutId(R.layout.loading_layout)
-                        .setWidth(100)
-                        .setHeight(100)
-                        .show(getSupportFragmentManager());
+
+                new LoadingDialog(this).setDimAmount(0).show();
+
                 break;
             case R.id.tips:
 

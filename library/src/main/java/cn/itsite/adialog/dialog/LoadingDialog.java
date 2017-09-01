@@ -1,6 +1,7 @@
 package cn.itsite.adialog.dialog;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
@@ -17,7 +18,7 @@ import cn.itsite.adialog.R;
  */
 public class LoadingDialog extends BaseDialog {
     private TextView tvLoading;
-    private String text;
+    private String text = "玩命加载中…";
 
     public LoadingDialog(@NonNull Context context) {
         super(context);
@@ -34,6 +35,12 @@ public class LoadingDialog extends BaseDialog {
     @Override
     public int getLayoutId() {
         return R.layout.adialog_loading;
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setCancelable(false);
     }
 
     @Override
