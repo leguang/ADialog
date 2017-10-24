@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,7 @@ import cn.itsite.adialog.BaseViewHolder;
 import cn.itsite.adialog.R;
 import cn.itsite.adialog.Utils;
 
-public class BaseDialogFragment extends DialogFragment {
+public class BaseDialogFragment extends AppCompatDialogFragment {
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";

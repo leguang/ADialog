@@ -184,6 +184,9 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                 dialog.setCancelable(false);
                 dialog.show();
                 break;
+
+            default:
+                break;
         }
     }
 

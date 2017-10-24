@@ -240,6 +240,8 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                         .setGravity(Gravity.TOP)
                         .show(getSupportFragmentManager());
                 break;
+            default:
+                break;
         }
     }
 
