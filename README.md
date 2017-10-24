@@ -26,7 +26,7 @@ ADialog是一个简单易用的构建Dialog和DialogFragment的工具，可以�
 ```
 	dependencies {
 	     //一个扩展性很好的Dialog+DialogFragment工具。
-   		 compile 'com.github.leguang:ADialog:1.7'
+   		 compile 'com.github.leguang:ADialog:1.9'
 	}
 ```
 此时同步一下，即已完成引入。
