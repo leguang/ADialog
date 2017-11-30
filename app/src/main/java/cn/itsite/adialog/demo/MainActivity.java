@@ -9,9 +9,14 @@ import android.widget.Button;
 import cn.itsite.adialog.demo.demo.DialogActivity;
 import cn.itsite.adialog.demo.demo.DialogFragmentActivity;
 
-
+/**
+ * @author leguang
+ * @version v0.0.0
+ * @E-mail langmanleguang@qq.com
+ * @time 2016/11/24 0024 9:08
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private static final String TAG = "MainActivity";
     private Button btDialog;
     private Button btDialogFragment;
 
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_dialog_fragment:
                 startActivity(new Intent(this, DialogFragmentActivity.class));
                 break;
+            default:
         }
     }
 }
