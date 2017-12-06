@@ -1,8 +1,6 @@
 package cn.itsite.adialog.dialog;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -25,7 +23,7 @@ public class BaseDialog extends AppCompatDialog {
     private static final String LAYOUT = "layout_id";
     private int width;//宽度
     private int height;//高度
-    private float dimAmount = 0.5F;//灰度深浅
+    private float dimAmount = 0.5f;//灰度深浅
     private int gravity;//是否底部显示
     @StyleRes
     private int animStyle;
@@ -86,7 +84,7 @@ public class BaseDialog extends AppCompatDialog {
         Window window = getWindow();
         if (window != null) {
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            window.setBackgroundDrawableResource(android.R.color.transparent);
             //设置dialog进入、退出的动画
             window.setWindowAnimations(animStyle);
             WindowManager.LayoutParams lp = window.getAttributes();

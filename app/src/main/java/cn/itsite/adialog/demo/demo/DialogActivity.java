@@ -71,7 +71,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                                 });
                             }
                         })
-                        .setDimAmount(0.3f)//设置window的暗度。
+                        .setDimAmount(0.3F)//设置window的暗度。
                         .setGravity(Gravity.TOP)//位置有多种选择。
                         .setAnimStyle(R.style.SlideAnimation)//进入和退出动画。
                         .show();//显示。

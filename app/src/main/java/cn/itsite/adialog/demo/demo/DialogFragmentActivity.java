@@ -8,8 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -183,6 +181,7 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                             }
                         })
                         .setDimAmount(0.3f)
+                        .setMargin(60)
                         .show(getSupportFragmentManager());
                 dialog.setCancelable(false);
                 break;
