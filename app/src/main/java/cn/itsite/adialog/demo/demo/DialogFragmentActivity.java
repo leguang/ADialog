@@ -8,6 +8,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -73,7 +75,7 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                             }
                         })
                         .setDimAmount(0.3f)//设置window的暗度。
-                        .setGravity(Gravity.BOTTOM)//位置有多种选择。
+                        .setGravity(Gravity.TOP)//位置有多种选择。
                         .setAnimStyle(R.style.SlideAnimation)//进入和退出动画。
                         .show(getSupportFragmentManager(), "MyBaseDialogFragment");//显示。
                 break;
@@ -103,45 +105,6 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                         .setAnimStyle(R.style.SlideAnimation)
                         .setGravity(Gravity.BOTTOM)
                         .show(getSupportFragmentManager());
-
-//                final SelectorAdapter selectorAdapter = new SelectorAdapter();
-//                new BaseDialogFragment()
-//                        .setLayoutId(R.layout.adialog_selector)
-//                        .setConvertListener(new ADialogListener.OnDialogFragmentConvertListener() {
-//
-//                            @Override
-//                            public void convert(BaseViewHolder holder, final DialogFragment dialog) {
-//                                holder.setText(R.id.tv_title_selector, "请选择XXX")
-//                                        .setOnClickListener(R.id.iv_cancel_selector, new View.OnClickListener() {
-//                                            @Override
-//                                            public void onClick(View v) {
-//                                                dialog.dismiss();
-//                                            }
-//                                        })
-//                                        .setOnClickListener(R.id.tv_cancel_selector, new View.OnClickListener() {
-//                                            @Override
-//                                            public void onClick(View v) {
-//                                                dialog.dismiss();
-//                                            }
-//                                        });
-//                                RecyclerView recyclerView = holder.getView(R.id.recyclerView_selector);
-//                                recyclerView.setLayoutManager(new LinearLayoutManager(DialogFragmentActivity.this));
-//                                recyclerView.setAdapter(selectorAdapter);
-//                                selectorAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-//                                    @Override
-//                                    public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-//                                        dialog.dismiss();
-//                                        showToast(position + "");
-//                                    }
-//                                });
-//                                selectorAdapter.setNewData(getData());
-//                            }
-//                        })
-//                        .setDimAmount(0.3f)
-//                        .setHeight(350)
-//                        .setGravity(Gravity.BOTTOM)
-//                        .setAnimStyle(R.style.SlideAnimation)
-//                        .show(getSupportFragmentManager());
                 break;
             case R.id.edit_input:
                 new BaseDialogFragment()
@@ -186,7 +149,6 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                                 });
                             }
                         })
-                        .setGravity(Gravity.TOP)
                         .setAnimStyle(R.style.SlideAnimation)
                         .show(getSupportFragmentManager());
                 break;
@@ -221,7 +183,6 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                             }
                         })
                         .setDimAmount(0.3f)
-                        .setMargin(60)
                         .show(getSupportFragmentManager());
                 dialog.setCancelable(false);
                 break;

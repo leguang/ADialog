@@ -1,6 +1,8 @@
 package cn.itsite.adialog.dialogfragment;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
@@ -17,18 +19,15 @@ import android.view.WindowManager;
 
 import cn.itsite.adialog.ADialogListener;
 import cn.itsite.adialog.BaseViewHolder;
-import cn.itsite.adialog.R;
 import cn.itsite.adialog.Utils;
 
 public class BaseDialogFragment extends AppCompatDialogFragment {
-    private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";
     private static final String DIM = "dim_amount";
     private static final String GRAVITY = "gravity";
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
-    private int margin;//左右边距
     private int width;//宽度
     private int height;//高度
     private float dimAmount = 0.5f;//灰度深浅
@@ -43,11 +42,10 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setStyle(DialogFragment.STYLE_NO_TITLE, R.style.BaseDialog);
+        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen);
         layoutId = getLayoutId();
         //恢复保存的数据
         if (savedInstanceState != null) {
-            margin = savedInstanceState.getInt(MARGIN);
             width = savedInstanceState.getInt(WIDTH);
             height = savedInstanceState.getInt(HEIGHT);
             dimAmount = savedInstanceState.getFloat(DIM);
@@ -97,7 +95,6 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(MARGIN, margin);
         outState.putInt(WIDTH, width);
         outState.putInt(HEIGHT, height);
         outState.putFloat(DIM, dimAmount);
@@ -112,12 +109,12 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
             //设置dialog进入、退出的动画
             window.setWindowAnimations(animStyle);
             WindowManager.LayoutParams lp = window.getAttributes();
-            //调节灰色背景透明度[0-1]，默认0.5f
+            //调节灰色背景透明度[0-1]，默认0.5F
             lp.dimAmount = dimAmount;
             lp.gravity = gravity;
             //设置dialog宽度
             if (width == 0) {
-                lp.width = Utils.getScreenWidth(getContext()) - 2 * Utils.dp2px(getContext(), margin);
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
             } else {
                 lp.width = Utils.dp2px(getContext(), width);
             }
@@ -148,11 +145,6 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
 
     public BaseDialogFragment setDialog(Dialog dialog) {
         this.dialog = dialog;
-        return this;
-    }
-
-    public BaseDialogFragment setMargin(int margin) {
-        this.margin = margin;
         return this;
     }
 

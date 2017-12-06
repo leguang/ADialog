@@ -179,8 +179,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                                 });
                             }
                         })
-                        .setDimAmount(0.3f)
-                        .setMargin(60);
+                        .setDimAmount(0.3f);
                 dialog.setCancelable(false);
                 dialog.show();
                 break;
