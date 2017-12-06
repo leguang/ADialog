@@ -30,7 +30,7 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     private static final String LAYOUT = "layout_id";
     private int width;//宽度
     private int height;//高度
-    private float dimAmount = 0.5f;//灰度深浅
+    private float dimAmount = 0.5F;//灰度深浅
     private int gravity;//是否底部显示
     @StyleRes
     private int animStyle;
