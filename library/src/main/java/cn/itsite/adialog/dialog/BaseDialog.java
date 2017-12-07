@@ -15,14 +15,16 @@ import cn.itsite.adialog.BaseViewHolder;
 import cn.itsite.adialog.Utils;
 
 public class BaseDialog extends AppCompatDialog {
+    private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";
     private static final String DIM = "dim_amount";
     private static final String GRAVITY = "gravity";
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
-    private int width;//宽度
-    private int height;//高度
+    private int margin;//左右边距
+    private int width = -1;//宽度
+    private int height = -2;//高度
     private float dimAmount = 0.5f;//灰度深浅
     private int gravity;//是否底部显示
     @StyleRes
@@ -65,6 +67,7 @@ public class BaseDialog extends AppCompatDialog {
     @Override
     public Bundle onSaveInstanceState() {
         Bundle bundle = super.onSaveInstanceState();
+        bundle.putInt(MARGIN, margin);
         bundle.putInt(WIDTH, width);
         bundle.putInt(HEIGHT, height);
         bundle.putFloat(DIM, dimAmount);
@@ -92,16 +95,20 @@ public class BaseDialog extends AppCompatDialog {
             lp.dimAmount = dimAmount;
             lp.gravity = gravity;
             //设置dialog宽度
-            if (width == 0) {
-                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-            } else {
+            if (margin > 0) {
+                lp.width = Utils.getScreenWidth(getContext()) - 2 * Utils.dp2px(getContext(), margin);
+            } else if (width > 0) {
                 lp.width = Utils.dp2px(getContext(), width);
+            } else {
+                lp.width = width;
             }
             //设置dialog高度
-            if (height == 0) {
-                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            } else {
+            if (margin > 0) {
+                lp.height = Utils.getScreenHeight(getContext()) - 2 * Utils.dp2px(getContext(), margin);
+            } else if (width > 0) {
                 lp.height = Utils.dp2px(getContext(), height);
+            } else {
+                lp.height = height;
             }
             window.setAttributes(lp);
         }
@@ -119,6 +126,11 @@ public class BaseDialog extends AppCompatDialog {
 
     public BaseDialog setLayoutId(@LayoutRes int layoutId) {
         this.layoutId = layoutId;
+        return this;
+    }
+
+    public BaseDialog setMargin(int margin) {
+        this.margin = margin;
         return this;
     }
 

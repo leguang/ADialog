@@ -29,9 +29,9 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
     private int margin;//左右边距
-    private int width;//宽度
-    private int height;//高度
-    private float dimAmount = 0.5f;//灰度深浅
+    private int width = -1;//宽度
+    private int height = -2;//高度
+    private float dimAmount = 0.5F;//灰度深浅
     private int gravity;//是否底部显示
     @StyleRes
     private int animStyle;
@@ -112,20 +112,24 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
             //设置dialog进入、退出的动画
             window.setWindowAnimations(animStyle);
             WindowManager.LayoutParams lp = window.getAttributes();
-            //调节灰色背景透明度[0-1]，默认0.5f
+            //调节灰色背景透明度[0-1]，默认0.5F
             lp.dimAmount = dimAmount;
             lp.gravity = gravity;
-            //设置dialog宽度
-            if (width == 0) {
+//            //设置dialog宽度
+            if (margin > 0) {
                 lp.width = Utils.getScreenWidth(getContext()) - 2 * Utils.dp2px(getContext(), margin);
-            } else {
+            } else if (width > 0) {
                 lp.width = Utils.dp2px(getContext(), width);
+            } else {
+                lp.width = width;
             }
             //设置dialog高度
-            if (height == 0) {
-                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-            } else {
+            if (margin > 0) {
+                lp.height = Utils.getScreenHeight(getContext()) - 2 * Utils.dp2px(getContext(), margin);
+            } else if (width > 0) {
                 lp.height = Utils.dp2px(getContext(), height);
+            } else {
+                lp.height = height;
             }
             window.setAttributes(lp);
         }

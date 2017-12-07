@@ -156,8 +156,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
 
                 break;
             case R.id.tips:
-
-                BaseDialog dialog = new BaseDialog(this)
+                new BaseDialog(this)
                         .setLayoutId(R.layout.confirm_layout)
                         .setConvertListener(new ADialogListener.OnDialogConvertListener() {
                             @Override
@@ -179,9 +178,8 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                                 });
                             }
                         })
-                        .setDimAmount(0.3f);
-                dialog.setCancelable(false);
-                dialog.show();
+                        .setDimAmount(0.3f)
+                        .show();
                 break;
 
             default:

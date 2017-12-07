@@ -158,7 +158,7 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                         .show(getSupportFragmentManager());
                 break;
             case R.id.tips:
-                BaseDialogFragment dialog = new BaseDialogFragment()
+                new BaseDialogFragment()
                         .setLayoutId(R.layout.confirm_layout)
                         .setConvertListener(new ADialogListener.OnDialogFragmentConvertListener() {
                             @Override
@@ -180,10 +180,12 @@ public class DialogFragmentActivity extends AppCompatActivity implements View.On
                                 });
                             }
                         })
-                        .setDimAmount(0.3f)
-                        .setMargin(60)
+                        .setDimAmount(0.3F)
+                        .setHeight(-2)
+                        .setWidth(-2)
+                        .setMargin(30)
+                        .setGravity(Gravity.BOTTOM)
                         .show(getSupportFragmentManager());
-                dialog.setCancelable(false);
                 break;
 
             case R.id.dialog_in_fragment:
