@@ -44,6 +44,7 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.BaseDialog);
+//        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen);
         layoutId = getLayoutId();
         //恢复保存的数据
         if (savedInstanceState != null) {
