@@ -96,7 +96,6 @@ public class SelectorDialog extends BaseDialog {
                 }
             });
         }
-//        adapter.notifyDataSetChanged();
     }
 
     public String getTitle() {
