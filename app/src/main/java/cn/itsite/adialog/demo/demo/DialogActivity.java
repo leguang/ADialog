@@ -151,9 +151,9 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                         .show();
                 break;
             case R.id.loading:
-
-                new LoadingDialog(this).setDimAmount(0).show();
-
+                BaseDialog loading = new LoadingDialog(this).setDimAmount(0);
+                loading.show();
+                loading.setCancelable(true);
                 break;
             case R.id.tips:
                 new BaseDialog(this)
@@ -179,6 +179,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                             }
                         })
                         .setDimAmount(0.3f)
+                        .setMargin(30)
                         .show();
                 break;
 

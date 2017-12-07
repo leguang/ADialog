@@ -29,8 +29,8 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
     private int margin;//左右边距
-    private int width = -1;//宽度
-    private int height = -2;//高度
+    private int width = -1;//宽度,-2代表包裹内容
+    private int height = -2;//高度，-2代表包裹内容
     private float dimAmount = 0.5F;//灰度深浅
     private int gravity;//是否底部显示
     @StyleRes
@@ -124,9 +124,7 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
                 lp.width = width;
             }
             //设置dialog高度
-            if (margin > 0) {
-                lp.height = Utils.getScreenHeight(getContext()) - 2 * Utils.dp2px(getContext(), margin);
-            } else if (width > 0) {
+            if (height > 0) {
                 lp.height = Utils.dp2px(getContext(), height);
             } else {
                 lp.height = height;

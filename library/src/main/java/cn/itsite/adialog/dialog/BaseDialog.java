@@ -25,7 +25,7 @@ public class BaseDialog extends AppCompatDialog {
     private int margin;//左右边距
     private int width = -1;//宽度
     private int height = -2;//高度
-    private float dimAmount = 0.5f;//灰度深浅
+    private float dimAmount = 0.5F;//灰度深浅
     private int gravity;//是否底部显示
     @StyleRes
     private int animStyle;
@@ -103,9 +103,7 @@ public class BaseDialog extends AppCompatDialog {
                 lp.width = width;
             }
             //设置dialog高度
-            if (margin > 0) {
-                lp.height = Utils.getScreenHeight(getContext()) - 2 * Utils.dp2px(getContext(), margin);
-            } else if (width > 0) {
+            if (height > 0) {
                 lp.height = Utils.dp2px(getContext(), height);
             } else {
                 lp.height = height;

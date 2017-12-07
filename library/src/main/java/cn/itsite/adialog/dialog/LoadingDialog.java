@@ -41,6 +41,8 @@ public class LoadingDialog extends BaseDialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCancelable(false);
+        setWidth(-2);
+        setHeight(-2);
     }
 
     @Override
