@@ -21,6 +21,7 @@ import cn.itsite.adialog.R;
 import cn.itsite.adialog.Utils;
 
 public class BaseDialogFragment extends AppCompatDialogFragment {
+    private static final String TAG = BaseDialogFragment.class.getName();
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";
@@ -185,7 +186,7 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     }
 
     public BaseDialogFragment show(FragmentManager manager) {
-        super.show(manager, String.valueOf(System.currentTimeMillis()));
+        super.show(manager, TAG);
         return this;
     }
 
