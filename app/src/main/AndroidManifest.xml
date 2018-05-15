@@ -17,9 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".demo.DialogActivity"
-            android:theme="@style/DialogActivity" />
+        <activity android:name=".demo.DialogActivity" />
         <activity android:name=".demo.DialogFragmentActivity" />
 
     </application>
