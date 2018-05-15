@@ -1,4 +1,4 @@
-package cn.itsite.adialog;
+package cn.itsite.adialog.common;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

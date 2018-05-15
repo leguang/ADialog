@@ -1,20 +1,20 @@
-package cn.itsite.adialog.dialog;
+package cn.itsite.adialog.support.dialog;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
+import android.support.v7.app.AppCompatDialog;
 import android.view.Window;
 import android.view.WindowManager;
 
-import cn.itsite.adialog.ADialogListener;
 import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.common.Utils;
+import cn.itsite.adialog.support.ADialogListener;
 
-public class BaseDialog extends Dialog {
+public class BaseDialog extends AppCompatDialog {
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";

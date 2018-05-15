@@ -11,7 +11,15 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
+        vectorDrawables.useSupportLibrary = true
+
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,6 +36,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 
     api 'com.android.support:appcompat-v7:27.1.1'
-
     api 'com.android.support:recyclerview-v7:27.1.1'
 }

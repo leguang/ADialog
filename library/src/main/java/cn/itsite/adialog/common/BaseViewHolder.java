@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.itsite.adialog;
+package cn.itsite.adialog.common;
 
 import android.graphics.Bitmap;
 import android.graphics.Paint;
@@ -53,9 +53,6 @@ public class BaseViewHolder extends RecyclerView.ViewHolder {
 
     public BaseViewHolder(final View view) {
         super(view);
-        if (view == null) {
-            throw new IllegalArgumentException("rootView may not be null");
-        }
         rootView = view;
         this.views = new SparseArray<>();
     }

@@ -1,4 +1,4 @@
-package cn.itsite.adialog.dialogfragment;
+package cn.itsite.adialog.support.dialogfragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.List;
 
-import cn.itsite.adialog.ADialogListener;
-import cn.itsite.adialog.dialog.SelectorDialog;
+import cn.itsite.adialog.support.ADialogListener;
+import cn.itsite.adialog.support.dialog.SelectorDialog;
 
 public class SelectorDialogFragment extends BaseDialogFragment {
     private String title;
@@ -21,7 +21,7 @@ public class SelectorDialogFragment extends BaseDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return new SelectorDialog(getActivity())
+        return new SelectorDialog(getContext())
                 .setTitle(title)
                 .setItemLayoutId(itemLayoutId)
                 .setData(mData)

@@ -1,25 +1,26 @@
-package cn.itsite.adialog.dialogfragment;
+package cn.itsite.adialog.support.dialogfragment;
 
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import cn.itsite.adialog.ADialogListener;
-import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.R;
+import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.common.Utils;
+import cn.itsite.adialog.support.ADialogListener;
 
-public class BaseDialogFragment extends DialogFragment {
+public class BaseDialogFragment extends AppCompatDialogFragment {
     private static final String TAG = BaseDialogFragment.class.getName();
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
@@ -70,7 +71,7 @@ public class BaseDialogFragment extends DialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (layoutId == 0) {
             return super.onCreateView(inflater, container, savedInstanceState);
         } else {
@@ -79,7 +80,7 @@ public class BaseDialogFragment extends DialogFragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         convertView(new BaseViewHolder(view), this);
     }
@@ -118,15 +119,15 @@ public class BaseDialogFragment extends DialogFragment {
             lp.gravity = gravity;
 //            //设置dialog宽度
             if (margin > 0) {
-                lp.width = Utils.getScreenWidth(getActivity()) - 2 * Utils.dp2px(getActivity(), margin);
+                lp.width = Utils.getScreenWidth(getContext()) - 2 * Utils.dp2px(getContext(), margin);
             } else if (width > 0) {
-                lp.width = Utils.dp2px(getActivity(), width);
+                lp.width = Utils.dp2px(getContext(), width);
             } else {
                 lp.width = width;
             }
             //设置dialog高度
             if (height > 0) {
-                lp.height = Utils.dp2px(getActivity(), height);
+                lp.height = Utils.dp2px(getContext(), height);
             } else {
                 lp.height = height;
             }

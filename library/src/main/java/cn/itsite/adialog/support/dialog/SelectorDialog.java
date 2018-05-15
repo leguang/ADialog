@@ -1,4 +1,4 @@
-package cn.itsite.adialog.dialog;
+package cn.itsite.adialog.support.dialog;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import cn.itsite.adialog.ADialogListener;
-import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.R;
+import cn.itsite.adialog.common.BaseViewHolder;
+import cn.itsite.adialog.support.ADialogListener;
 
 /**
  * Author：leguang on 2017/4/12 0009 14:23

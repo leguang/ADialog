@@ -2,7 +2,9 @@ package cn.itsite.adialog.demo.demo;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
@@ -10,37 +12,41 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.itsite.adialog.ADialogListener;
-import cn.itsite.adialog.BaseViewHolder;
+import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.demo.R;
-import cn.itsite.adialog.dialog.BaseDialog;
-import cn.itsite.adialog.dialog.LoadingDialog;
-import cn.itsite.adialog.dialog.SelectorDialog;
+import cn.itsite.adialog.support.ADialogListener;
+import cn.itsite.adialog.support.dialog.BaseDialog;
+import cn.itsite.adialog.support.dialog.LoadingDialog;
+import cn.itsite.adialog.support.dialog.SelectorDialog;
 
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
     private Button bt0, bt1, bt2, bt3, bt4, bt5;
+    private Toolbar toolbar;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
-
+        toolbar.setTitle("Dialog");
         initView();
         initData();
     }
 
     private void initView() {
-        bt0 = (Button) findViewById(R.id.share);
-        bt1 = (Button) findViewById(R.id.selector);
-        bt2 = (Button) findViewById(R.id.edit_input);
-        bt3 = (Button) findViewById(R.id.lucky_money);
-        bt4 = (Button) findViewById(R.id.loading);
-        bt5 = (Button) findViewById(R.id.tips);
+        toolbar = findViewById(R.id.toolbar);
+        bt0 = findViewById(R.id.share);
+        bt1 = findViewById(R.id.selector);
+        bt2 = findViewById(R.id.edit_input);
+        bt3 = findViewById(R.id.lucky_money);
+        bt4 = findViewById(R.id.loading);
+        bt5 = findViewById(R.id.tips);
     }
 
     private void initData() {
