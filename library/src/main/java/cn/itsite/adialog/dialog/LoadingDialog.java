@@ -2,13 +2,14 @@ package cn.itsite.adialog.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
 import android.widget.TextView;
 
-import cn.itsite.adialog.common.BaseViewHolder;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+
 import cn.itsite.adialog.R;
+import cn.itsite.adialog.common.BaseViewHolder;
 
 /**
  * Author：leguang on 2017/4/12 0009 14:23

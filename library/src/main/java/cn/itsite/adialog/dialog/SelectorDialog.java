@@ -1,19 +1,19 @@
 package cn.itsite.adialog.dialog;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleRes;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import cn.itsite.adialog.ADialogListener;
-import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.R;
+import cn.itsite.adialog.common.BaseViewHolder;
 
 /**
  * Author：leguang on 2017/4/12 0009 14:23
@@ -50,18 +50,8 @@ public class SelectorDialog extends BaseDialog {
     public void convertView(BaseViewHolder holder, BaseDialog dialog) {
         super.convertView(holder, dialog);
         holder.setText(R.id.tv_title_selector, title)
-                .setOnClickListener(R.id.iv_cancel_selector, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dismiss();
-                    }
-                })
-                .setOnClickListener(R.id.tv_cancel_selector, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dismiss();
-                    }
-                });
+                .setOnClickListener(R.id.iv_cancel_selector, v -> dismiss())
+                .setOnClickListener(R.id.tv_cancel_selector, v -> dismiss());
 
         RecyclerView recyclerView = holder.getView(R.id.recyclerView_selector);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -70,18 +60,15 @@ public class SelectorDialog extends BaseDialog {
         } else {
             recyclerView.setAdapter(adapter = new RecyclerView.Adapter<BaseViewHolder>() {
                 @Override
-                public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+                public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                     return new BaseViewHolder(getLayoutInflater().inflate(itemLayoutId, parent, false));
                 }
 
                 @Override
-                public void onBindViewHolder(final BaseViewHolder holder, final int position) {
-                    holder.itemView.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (itemClickListener != null) {
-                                itemClickListener.onItemClick(v, holder, position, SelectorDialog.this);
-                            }
+                public void onBindViewHolder(@NonNull final BaseViewHolder holder, final int position) {
+                    holder.itemView.setOnClickListener(v -> {
+                        if (itemClickListener != null) {
+                            itemClickListener.onItemClick(v, holder, position, SelectorDialog.this);
                         }
                     });
 

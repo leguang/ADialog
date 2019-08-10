@@ -1,8 +1,9 @@
 package cn.itsite.adialog.support;
 
 import android.app.Dialog;
-import android.support.v4.app.DialogFragment;
 import android.view.View;
+
+import androidx.fragment.app.DialogFragment;
 
 import cn.itsite.adialog.common.BaseViewHolder;
 
