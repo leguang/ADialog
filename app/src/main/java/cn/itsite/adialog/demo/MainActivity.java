@@ -2,12 +2,10 @@ package cn.itsite.adialog.demo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import cn.itsite.adialog.demo.demo.DialogActivity;
-import cn.itsite.adialog.demo.demo.DialogFragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * @author leguang
@@ -19,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     private Button btDialog;
     private Button btDialogFragment;
+    private Button bottomSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,13 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        btDialog = (Button) findViewById(R.id.bt_dialog);
-        btDialogFragment = (Button) findViewById(R.id.bt_dialog_fragment);
+        btDialog = findViewById(R.id.bt_dialog);
+        btDialogFragment = findViewById(R.id.bt_dialog_fragment);
+        bottomSheet = findViewById(R.id.bt_bottom_sheet);
     }
 
     private void initData() {
         btDialog.setOnClickListener(this);
         btDialogFragment.setOnClickListener(this);
+        bottomSheet.setOnClickListener(this);
     }
 
     @Override
@@ -48,7 +49,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_dialog_fragment:
                 startActivity(new Intent(this, DialogFragmentActivity.class));
                 break;
+            case R.id.bt_bottom_sheet:
+                startActivity(new Intent(this, BottomSheetActivity.class));
+                break;
             default:
+                break;
         }
     }
 }

@@ -21,7 +21,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:lineSpacingExtra="3dp"
-        android:text="玩命加载中…"
+        android:text="@string/loading_text"
         android:textColor="#FFFF"
         android:textSize="13sp" />
 </LinearLayout>

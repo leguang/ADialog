@@ -1,9 +1,7 @@
-package cn.itsite.adialog.demo.demo;
+package cn.itsite.adialog.demo;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-
-import cn.itsite.adialog.demo.R;
 
 
 /**

@@ -26,6 +26,16 @@ public interface ADialogListener {
         void convert(BaseViewHolder holder, DialogFragment dialog);
     }
 
+//    interface OnBottomSheetDialogConvertListener {
+//
+//        void convert(BaseViewHolder holder, BottomSheetDialog dialog);
+//    }
+//
+//    interface OnBottomSheetDialogFragmentConvertListener {
+//
+//        void convert(BaseViewHolder holder, BottomSheetDialogFragment dialog);
+//    }
+
     interface OnItemConvertListener {
 
         void onItemConvert(BaseViewHolder holder, int position, Dialog dialog);

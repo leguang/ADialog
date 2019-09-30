@@ -5,23 +5,17 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/bt_dialog"
+        android:id="@+id/bottom_sheet_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Dialog使用"
+        android:text="BottomSheetDialog使用"
         android:textAllCaps="false" />
 
     <Button
-        android:id="@+id/bt_dialog_fragment"
+        android:id="@+id/bottom_sheet_dialog_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DialogFragment使用"
+        android:text="BottomSheetDialogFragment使用"
         android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/bt_bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BottomSheet使用"
-        android:textAllCaps="false" />
 </LinearLayout>

@@ -1,6 +1,5 @@
-package cn.itsite.adialog.dialog;
+package cn.itsite.adialog.bottomsheet;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Window;
@@ -11,11 +10,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 
-import cn.itsite.adialog.ADialogListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.common.Utils;
+import cn.itsite.adialog.support.ADialogListener;
 
-public class BaseDialog extends Dialog {
+public class BaseBottomSheetDialog extends BottomSheetDialog {
+    public static final String TAG = BaseBottomSheetDialog.class.getName();
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";
@@ -34,15 +36,15 @@ public class BaseDialog extends Dialog {
     protected int layoutId;
     private ADialogListener.OnDialogConvertListener mConvertListener;
 
-    public BaseDialog(@NonNull Context context) {
+    public BaseBottomSheetDialog(@NonNull Context context) {
         super(context);
     }
 
-    public BaseDialog(@NonNull Context context, @StyleRes int themeResId) {
+    public BaseBottomSheetDialog(@NonNull Context context, @StyleRes int themeResId) {
         super(context, themeResId);
     }
 
-    protected BaseDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
+    protected BaseBottomSheetDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
     }
 
@@ -113,7 +115,7 @@ public class BaseDialog extends Dialog {
         }
     }
 
-    public void convertView(BaseViewHolder holder, BaseDialog dialog) {
+    public void convertView(BaseViewHolder holder, BaseBottomSheetDialog dialog) {
         if (mConvertListener != null) {
             mConvertListener.convert(holder, dialog);
         }
@@ -123,42 +125,42 @@ public class BaseDialog extends Dialog {
         return layoutId;
     }
 
-    public BaseDialog setLayoutId(@LayoutRes int layoutId) {
+    public BaseBottomSheetDialog setLayoutId(@LayoutRes int layoutId) {
         this.layoutId = layoutId;
         return this;
     }
 
-    public BaseDialog setMargin(int margin) {
+    public BaseBottomSheetDialog setMargin(int margin) {
         this.margin = margin;
         return this;
     }
 
-    public BaseDialog setWidth(int width) {
+    public BaseBottomSheetDialog setWidth(int width) {
         this.width = width;
         return this;
     }
 
-    public BaseDialog setHeight(int height) {
+    public BaseBottomSheetDialog setHeight(int height) {
         this.height = height;
         return this;
     }
 
-    public BaseDialog setDimAmount(float dimAmount) {
+    public BaseBottomSheetDialog setDimAmount(float dimAmount) {
         this.dimAmount = dimAmount;
         return this;
     }
 
-    public BaseDialog setGravity(int gravity) {
+    public BaseBottomSheetDialog setGravity(int gravity) {
         this.gravity = gravity;
         return this;
     }
 
-    public BaseDialog setAnimStyle(@StyleRes int animStyle) {
+    public BaseBottomSheetDialog setAnimStyle(@StyleRes int animStyle) {
         this.animStyle = animStyle;
         return this;
     }
 
-    public BaseDialog setConvertListener(ADialogListener.OnDialogConvertListener listener) {
+    public BaseBottomSheetDialog setConvertListener(ADialogListener.OnDialogConvertListener listener) {
         this.mConvertListener = listener;
         return this;
     }

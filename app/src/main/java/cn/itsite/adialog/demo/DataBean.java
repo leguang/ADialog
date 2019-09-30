@@ -1,4 +1,4 @@
-package cn.itsite.adialog.demo.demo;
+package cn.itsite.adialog.demo;
 
 /**
  * Created by leguang on 2017/8/15 0015.

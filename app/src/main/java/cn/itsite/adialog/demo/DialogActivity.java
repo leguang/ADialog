@@ -1,9 +1,8 @@
-package cn.itsite.adialog.demo.demo;
+package cn.itsite.adialog.demo;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -11,11 +10,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.itsite.adialog.common.BaseViewHolder;
-import cn.itsite.adialog.demo.R;
 import cn.itsite.adialog.support.ADialogListener;
 import cn.itsite.adialog.support.dialog.BaseDialog;
 import cn.itsite.adialog.support.dialog.LoadingDialog;
@@ -195,7 +195,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         return data;
     }
 
-    public static Toast mToast;
+    public Toast mToast;
 
     public void showToast(String msg) {
         if (mToast == null) {

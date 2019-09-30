@@ -30,7 +30,7 @@
         android:layout_height="1dp"
         android:background="#E7E7E7" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_selector"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -50,6 +50,6 @@
         android:background="?android:attr/selectableItemBackground"
         android:gravity="center"
         android:padding="10dp"
-        android:text="取　消"
+        android:text="@string/cancel"
         android:textColor="#222" />
 </LinearLayout>

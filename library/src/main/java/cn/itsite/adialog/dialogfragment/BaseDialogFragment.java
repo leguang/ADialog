@@ -45,7 +45,7 @@ public class BaseDialogFragment extends DialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.BaseDialog);
-//        setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen);
+        //setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen);
         layoutId = getLayoutId();
         //恢复保存的数据
         if (savedInstanceState != null) {
@@ -117,7 +117,7 @@ public class BaseDialogFragment extends DialogFragment {
             //调节灰色背景透明度[0-1]，默认0.5F
             lp.dimAmount = dimAmount;
             lp.gravity = gravity;
-//            //设置dialog宽度
+            //设置dialog宽度
             if (margin > 0) {
                 lp.width = Utils.getScreenWidth(getActivity()) - 2 * Utils.dp2px(getActivity(), margin);
             } else if (width > 0) {

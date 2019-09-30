@@ -1,4 +1,4 @@
-package cn.itsite.adialog.support.dialogfragment;
+package cn.itsite.adialog.bottomsheet;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -12,17 +12,18 @@ import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
+
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import cn.itsite.adialog.R;
 import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.common.Utils;
 import cn.itsite.adialog.support.ADialogListener;
 
-public class BaseDialogFragment extends AppCompatDialogFragment {
-    private static final String TAG = BaseDialogFragment.class.getName();
+public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
+    public static final String TAG = BaseBottomSheetDialogFragment.class.getName();
     private static final String MARGIN = "margin";
     private static final String WIDTH = "width";
     private static final String HEIGHT = "height";
@@ -46,7 +47,6 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, R.style.BaseDialog);
-        //setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_NoTitleBar_Fullscreen);
         layoutId = getLayoutId();
         //恢复保存的数据
         if (savedInstanceState != null) {
@@ -140,58 +140,58 @@ public class BaseDialogFragment extends AppCompatDialogFragment {
         return layoutId;
     }
 
-    public void convertView(BaseViewHolder holder, BaseDialogFragment dialog) {
+    public void convertView(BaseViewHolder holder, BaseBottomSheetDialogFragment dialog) {
         if (mConvertListener != null) {
             mConvertListener.convert(holder, dialog);
         }
     }
 
-    public BaseDialogFragment setLayoutId(@LayoutRes int layoutId) {
+    public BaseBottomSheetDialogFragment setLayoutId(@LayoutRes int layoutId) {
         this.layoutId = layoutId;
         return this;
     }
 
-    public BaseDialogFragment setDialog(Dialog dialog) {
+    public BaseBottomSheetDialogFragment setDialog(Dialog dialog) {
         this.dialog = dialog;
         return this;
     }
 
-    public BaseDialogFragment setMargin(int margin) {
+    public BaseBottomSheetDialogFragment setMargin(int margin) {
         this.margin = margin;
         return this;
     }
 
-    public BaseDialogFragment setWidth(int width) {
+    public BaseBottomSheetDialogFragment setWidth(int width) {
         this.width = width;
         return this;
     }
 
-    public BaseDialogFragment setHeight(int height) {
+    public BaseBottomSheetDialogFragment setHeight(int height) {
         this.height = height;
         return this;
     }
 
-    public BaseDialogFragment setDimAmount(float dimAmount) {
+    public BaseBottomSheetDialogFragment setDimAmount(float dimAmount) {
         this.dimAmount = dimAmount;
         return this;
     }
 
-    public BaseDialogFragment setGravity(int gravity) {
+    public BaseBottomSheetDialogFragment setGravity(int gravity) {
         this.gravity = gravity;
         return this;
     }
 
-    public BaseDialogFragment setAnimStyle(@StyleRes int animStyle) {
+    public BaseBottomSheetDialogFragment setAnimStyle(@StyleRes int animStyle) {
         this.animStyle = animStyle;
         return this;
     }
 
-    public BaseDialogFragment show(FragmentManager manager) {
+    public BaseBottomSheetDialogFragment show(FragmentManager manager) {
         super.show(manager, TAG);
         return this;
     }
 
-    public BaseDialogFragment setConvertListener(ADialogListener.OnDialogFragmentConvertListener listener) {
+    public BaseBottomSheetDialogFragment setConvertListener(ADialogListener.OnDialogFragmentConvertListener listener) {
         this.mConvertListener = listener;
         return this;
     }

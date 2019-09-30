@@ -87,7 +87,7 @@ public class BaseDialog extends AppCompatDialog {
     private void initWindow() {
         Window window = getWindow();
         if (window != null) {
-//            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setBackgroundDrawableResource(android.R.color.transparent);
             //设置dialog进入、退出的动画
             window.setWindowAnimations(animStyle);

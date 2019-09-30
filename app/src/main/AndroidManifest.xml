@@ -16,10 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".demo.DialogActivity" />
-        <activity android:name=".demo.DialogFragmentActivity" />
-
+        <activity android:name=".DialogActivity" />
+        <activity android:name=".DialogFragmentActivity" />
+        <activity android:name=".BottomSheetActivity" />
     </application>
 
 </manifest>
