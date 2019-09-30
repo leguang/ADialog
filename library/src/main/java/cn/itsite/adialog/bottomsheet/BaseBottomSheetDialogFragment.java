@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import androidx.annotation.StyleRes;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import cn.itsite.adialog.R;
@@ -31,17 +33,20 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
     private static final String GRAVITY = "gravity";
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
-    private int margin;//左右边距
-    private int width = -1;//宽度,-2代表包裹内容
-    private int height = -2;//高度，-2代表包裹内容
-    private float dimAmount = 0.5F;//灰度深浅
-    private int gravity;//是否底部显示
+    private static final String PEEKHEIGHT = "peekHeight";
+    protected int margin;//左右边距
+    protected int width = -1;//宽度,-2代表包裹内容
+    protected int height = -2;//高度，-2代表包裹内容
+    protected float dimAmount = 0.5F;//灰度深浅
+    protected int gravity;//是否底部显示
     @StyleRes
-    private int animStyle;
+    protected int animStyle;
     @LayoutRes
     protected int layoutId;
-    private ADialogListener.OnDialogFragmentConvertListener mConvertListener;
-    private Dialog dialog;
+    protected ADialogListener.OnDialogFragmentConvertListener mConvertListener;
+    protected Dialog dialog;
+    protected Integer peekHeight;
+    protected BottomSheetBehavior<FrameLayout> behavior;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,6 +62,7 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
             gravity = savedInstanceState.getInt(GRAVITY);
             animStyle = savedInstanceState.getInt(ANIM);
             layoutId = savedInstanceState.getInt(LAYOUT);
+            peekHeight = savedInstanceState.getInt(PEEKHEIGHT);
         }
     }
 
@@ -90,6 +96,9 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
     public void onStart() {
         super.onStart();
         initWindow();
+        if (peekHeight != null && behavior != null) {
+            behavior.setPeekHeight(peekHeight);
+        }
     }
 
     /**
@@ -107,6 +116,7 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
         outState.putInt(GRAVITY, gravity);
         outState.putInt(ANIM, animStyle);
         outState.putInt(LAYOUT, layoutId);
+        outState.putInt(PEEKHEIGHT, peekHeight);
     }
 
     private void initWindow() {
@@ -133,6 +143,8 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
                 lp.height = height;
             }
             window.setAttributes(lp);
+            View decorView = window.getDecorView();
+            behavior = BottomSheetBehavior.from(decorView.findViewById(R.id.design_bottom_sheet));
         }
     }
 
@@ -194,5 +206,16 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
     public BaseBottomSheetDialogFragment setConvertListener(ADialogListener.OnDialogFragmentConvertListener listener) {
         this.mConvertListener = listener;
         return this;
+    }
+
+    public BaseBottomSheetDialogFragment setPeekHeight(int peekHeight) {
+        this.peekHeight = peekHeight;
+        return this;
+    }
+
+    public void updatePeekHeight(int peekHeight) {
+        if (behavior != null) {
+            behavior.setPeekHeight(peekHeight);
+        }
     }
 }

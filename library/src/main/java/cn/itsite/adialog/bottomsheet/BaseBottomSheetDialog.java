@@ -2,16 +2,20 @@ package cn.itsite.adialog.bottomsheet;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
+import cn.itsite.adialog.R;
 import cn.itsite.adialog.common.BaseViewHolder;
 import cn.itsite.adialog.common.Utils;
 import cn.itsite.adialog.support.ADialogListener;
@@ -25,16 +29,19 @@ public class BaseBottomSheetDialog extends BottomSheetDialog {
     private static final String GRAVITY = "gravity";
     private static final String ANIM = "anim_style";
     private static final String LAYOUT = "layout_id";
-    private int margin;//左右边距
-    private int width = -1;//宽度
-    private int height = -2;//高度
-    private float dimAmount = 0.5F;//灰度深浅
-    private int gravity;//是否底部显示
+    private static final String PEEKHEIGHT = "peekHeight";
+    protected int margin;//左右边距
+    protected int width = -1;//宽度
+    protected int height = -2;//高度
+    protected float dimAmount = 0.5F;//灰度深浅
+    protected int gravity;//是否底部显示
     @StyleRes
     private int animStyle;
     @LayoutRes
     protected int layoutId;
-    private ADialogListener.OnDialogConvertListener mConvertListener;
+    protected ADialogListener.OnDialogConvertListener mConvertListener;
+    protected Integer peekHeight;
+    protected BottomSheetBehavior<FrameLayout> behavior;
 
     public BaseBottomSheetDialog(@NonNull Context context) {
         super(context);
@@ -59,11 +66,14 @@ public class BaseBottomSheetDialog extends BottomSheetDialog {
             gravity = savedInstanceState.getInt(GRAVITY);
             animStyle = savedInstanceState.getInt(ANIM);
             layoutId = savedInstanceState.getInt(LAYOUT);
+            peekHeight = savedInstanceState.getInt(PEEKHEIGHT);
         }
         layoutId = getLayoutId();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(layoutId);
-        convertView(new BaseViewHolder(getWindow().getDecorView()), this);
+        View decorView = getWindow().getDecorView();
+        behavior = BottomSheetBehavior.from(decorView.findViewById(R.id.design_bottom_sheet));
+        convertView(new BaseViewHolder(decorView), this);
     }
 
     @NonNull
@@ -77,6 +87,7 @@ public class BaseBottomSheetDialog extends BottomSheetDialog {
         bundle.putInt(GRAVITY, gravity);
         bundle.putInt(ANIM, animStyle);
         bundle.putInt(LAYOUT, layoutId);
+        bundle.putInt(PEEKHEIGHT, peekHeight);
         return bundle;
     }
 
@@ -84,6 +95,9 @@ public class BaseBottomSheetDialog extends BottomSheetDialog {
     public void onStart() {
         super.onStart();
         initWindow();
+        if (peekHeight != null && behavior != null) {
+            behavior.setPeekHeight(peekHeight);
+        }
     }
 
     private void initWindow() {
@@ -163,5 +177,16 @@ public class BaseBottomSheetDialog extends BottomSheetDialog {
     public BaseBottomSheetDialog setConvertListener(ADialogListener.OnDialogConvertListener listener) {
         this.mConvertListener = listener;
         return this;
+    }
+
+    public BaseBottomSheetDialog setPeekHeight(int peekHeight) {
+        this.peekHeight = peekHeight;
+        return this;
+    }
+
+    public void updatePeekHeight(int peekHeight) {
+        if (behavior != null) {
+            behavior.setPeekHeight(peekHeight);
+        }
     }
 }

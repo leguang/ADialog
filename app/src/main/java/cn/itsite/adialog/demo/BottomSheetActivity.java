@@ -41,7 +41,6 @@ public class BottomSheetActivity extends AppCompatActivity {
 
     private void showBottomSheetDialog() {
         final List<DataBean> mData = getData();
-
         new BaseBottomSheetDialog(this)
                 .setLayoutId(R.layout.adialog_selector)//传入你的xml布局。
                 .setConvertListener(new ADialogListener.OnDialogConvertListener() {
@@ -76,8 +75,9 @@ public class BottomSheetActivity extends AppCompatActivity {
                         }
                     }
                 })
-                .setDimAmount(0.3F)//设置window的暗度。
-                .show();//显示。
+                .setDimAmount(0.3F)
+                .setPeekHeight(100)
+                .show();
     }
 
     private void showBottomSheetDialogFragment() {
@@ -118,6 +118,7 @@ public class BottomSheetActivity extends AppCompatActivity {
                         }
                     }
                 })
+                .setPeekHeight(100)
                 .show(getSupportFragmentManager());//显示。
     }
 
