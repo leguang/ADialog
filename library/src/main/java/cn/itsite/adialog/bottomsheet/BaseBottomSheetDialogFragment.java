@@ -45,7 +45,7 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
     protected int layoutId;
     protected ADialogListener.OnDialogFragmentConvertListener mConvertListener;
     protected Dialog dialog;
-    protected Integer peekHeight;
+    protected Integer peekHeight;//之所以使用Integer而不用int，就是希望判空来判断是否曾经设置过
     protected BottomSheetBehavior<FrameLayout> behavior;
 
     @Override
@@ -116,7 +116,9 @@ public class BaseBottomSheetDialogFragment extends BottomSheetDialogFragment {
         outState.putInt(GRAVITY, gravity);
         outState.putInt(ANIM, animStyle);
         outState.putInt(LAYOUT, layoutId);
-        outState.putInt(PEEKHEIGHT, peekHeight);
+        if (peekHeight != null) {
+            outState.putInt(PEEKHEIGHT, peekHeight);
+        }
     }
 
     private void initWindow() {
